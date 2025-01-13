@@ -24,6 +24,11 @@ jobs:
       - name: Build the Svelte app
         run: npm run build
 
+      - name: Check for Personal Access Token
+        run: echo "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
+        env:
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
